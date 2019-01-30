@@ -1,0 +1,14 @@
+
+
+/*BUTTON*/
+
+.button {
+    -fx-background-color: pink;
+    -fx-border-radius: 100%;
+    -fx-background-radius: 10px;
+    -fx-border-color: red;
+}
+
+.button:hover {
+    -fx-background-color: rgba(4,4,4,0.2);
+}

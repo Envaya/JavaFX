@@ -7,6 +7,7 @@ public class Person {
     private int    age;
     private double weight;
     private double height;
+    private Person[] allFriends = new Person[30];
 
     public Person(int age, double weight, double height) {
         this.age    = age;
@@ -42,5 +43,36 @@ public class Person {
 
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    public int getNumberOfFriends() {
+        int counter = 0;
+        for (int i=0; i<allFriends.length; i++){
+            if (allFriends[i] != null) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    public void addFriend(Person person) {
+        if (!hasAsFriend(person)) {
+            for (int i=0; i<allFriends.length; i++){
+                if (allFriends[i] == null) {
+                    allFriends[i] = person;
+                }
+                break;
+            }
+            person.addFriend(this);
+        }
+    }
+
+    public boolean hasAsFriend(Person person) {
+        for (int i=0; i<allFriends.length; i++){
+            if (allFriends[i] != null && allFriends[i].equals(person)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
